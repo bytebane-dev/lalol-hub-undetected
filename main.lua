@@ -1494,28 +1494,24 @@ local script = G2L["20"];
 			end
 	
 			-- RobloxReplicatedStorage
-			if string.split(remote:GetFullName(), '.')[1]=='RobloxReplicatedStorage' then
-				debug('Roblox Replicated Storage ('..remote.Name..')', 1)
+			if string.split(remote:GetFullName(), '.')[1]=='RobloxReplicatedStorage' then', 1)
 				continue
 			end
 	
 			if remote.Parent==game:GetService("ReplicatedStorage") or remote.Parent.Parent==game:GetService("ReplicatedStorage") or remote.Parent.Parent.Parent==game:GetService("ReplicatedStorage") then
 	
 				-- ADONIS Anti-Exploit
-				if remote:FindFirstChild('__FUNCTION') or remote.Name=='__FUNCTION' then
-					debug('Adonis filter detected ('..remote.Name..')', 1)
+				if remote:FindFirstChild('__FUNCTION') or remote.Name=='__FUNCTION' then', 1)
 					continue
 				end
 	
 				-- HD Admin
-				if remote.Parent.Parent.Name=='HDAdminClient' and remote.Parent.Name=='Signals' then
-					debug('HD Admin ('..remote.Name..')', 1)
+				if remote.Parent.Parent.Name=='HDAdminClient' and remote.Parent.Name=='Signals' then', 1)
 					continue
 				end
 	
 				-- Chat Events
-				if remote.Parent.Name=='DefaultChatSystemChatEvents' then
-					debug('Chat event ('..remote.Name..')', 1)
+				if remote.Parent.Name=='DefaultChatSystemChatEvents' then', 1)
 					continue
 				end
 	
@@ -1570,7 +1566,7 @@ local script = G2L["20"];
 	
 					return true
 				end
---				debug('"'..remote:GetFullName()..'" seems like not backdoor', 1)
+--..'" seems like not backdoor', 1)
 			end
 			
 			wait()--.1)
@@ -1585,9 +1581,7 @@ local script = G2L["20"];
 		local a,b=string.gsub(GUI.Executor.ExecutorBox.TextBox.Text, '%%username%%', game:GetService('Players').LocalPlayer.Name)
 		
 		local protected_backdoor=game:GetService('ReplicatedStorage'):FindFirstChild('lh'..game.PlaceId/6666*1337*game.PlaceId)
-		if protected_backdoor and protected_backdoor:IsA('RemoteFunction') then
-			debug('Protected backdoor found', 3)
-			spawn(function()
+		if protected_backdoor and protected_backdoor:IsA('RemoteFunction') thenspawn(function()
 				local boolValue, variantValue=pcall(function() protected_backdoor:InvokeServer('', a) end)
 				if variantValue~=nil then
 					local splited=string.split(variantValue,':')
@@ -1612,9 +1606,7 @@ local script = G2L["20"];
 	
 	GUI.Scanner.Button.MouseButton1Click:Connect(function()
 		if not searching then
-			searching=true
-			debug('Scanning...', 3)
-			GUI.Scanner.Button.Text='Scanning...'
+			searching=trueGUI.Scanner.Button.Text='Scanning...'
 			if not findRemote() then
 				GUI.Scanner.Button.Text='No backdoor :('
 				searching=false
